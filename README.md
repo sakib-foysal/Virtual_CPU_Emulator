@@ -1,4 +1,5 @@
 # Virtual_CPU_Emulator
+<img src="https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/images/cpu.png" height="200" />
 <img src="https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/images/cpu_architecture.png" height="200"/>
 
 ## Project Description 📝
