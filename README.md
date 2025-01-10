@@ -25,7 +25,7 @@ The emulation aims not only at this but also seeks to connect theory with practi
 
 ## Weekly Tasks Overview 🗓️
 
-### [Week 1: Project Planning & Setup]
+### [Week 1: Project Planning & Setup](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2001.pdf)
 - **Objective:** Define project scope, gather resources, and set up a development environment.
 - **Tasks:**
   - Outline the features of the virtual CPU.
