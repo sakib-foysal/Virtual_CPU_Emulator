@@ -23,6 +23,11 @@ The Virtual CPU Emulator is intended to be a simplified, more interactive source
 - Assisting teachers and students in visualizing and experimenting with the underlying concepts of CPU functionality.
 The emulation aims not only at this but also seeks to connect theory with practice truly processors work in fundamentals.
 
+## Tools 💻
+- **Programming Language:** Python
+- **Version Control:** GitHub
+- **Development Environment:** Any Python IDE or text editor with Python
+
 ## Weekly Tasks Overview 🗓️
 
 ### [Week 1: Project Planning & Setup](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2001.pdf)
