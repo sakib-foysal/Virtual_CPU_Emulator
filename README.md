@@ -1,5 +1,5 @@
 # Virtual_CPU_Emulator
-<img src="https://github.com/sakib_foysal/Virtual_CPU_Emulator/main/cpu.svg" height="150"/>
+<img src="https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/images/cpu.svg" height="150"/>
 
 ## Project Description 📝
 This project builds a Virtual CPU Emulator to simulate essential CPU components and operations. It covers Instruction Set Architecture (ISA), ALU, memory management, and I/O operations, following a 10-week structured plan.
