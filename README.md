@@ -1,5 +1,6 @@
 # Virtual_CPU_Emulator
 # Project Description
+This project builds a Virtual CPU Emulator to simulate essential CPU components and operations. It covers Instruction Set Architecture (ISA), ALU, memory management, and I/O operations, following a 10-week structured plan.
 # Group Members 
 - Member 1: [Sakib Foysal Ejarder **ID: 11220320948**](mailto:sakibfoysal2@gmail.com)
 - Member 2: [Sayed Tauhidul Islam **ID: 11220320950**](mailto:itouhidul322@gmail.com)
