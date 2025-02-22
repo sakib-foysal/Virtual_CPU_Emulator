@@ -85,12 +85,10 @@ The emulation aims not only at this but also seeks to connect theory with practi
 print(week_2_define_instructions())
 
 # Output:
-[
-    "0001 0001 00001010",  # ADD R1 10
-    "0010 0010 00000101",  # SUB R2 5
-    "0011 0001 00010100",  # LOAD R1 20
-    "0100 0010 00001111"   # STORE R2 15
-]
+["0001 0001 00001010",  # ADD R1 10
+ "0010 0010 00000101",  # SUB R2 5
+ "0011 0001 00010100",  # LOAD R1 20
+ "0100 0010 00001111"   # STORE R2 15]
 ```
 
 ### [Week 3: Basic CPU Components]
