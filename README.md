@@ -194,13 +194,6 @@ def week_3_cpu_components():
    - The operation is executed, modifying the registers.
 3. The Program Counter (PC) increments, and the cycle repeats until all instructions are executed.
 
-### Output:
-
-The function returns a list containing:
-- Fetched instruction.
-- Decoded instruction (opcode and operands).
-- The state of the registers after executing the instruction.
-
 ### Code:
 
 ```python
@@ -233,6 +226,13 @@ def week_4_execute_instructions():
         else:
             print("Unknown instruction")
 ```
+### Output:
+
+The function returns a list containing:
+- Fetched instruction.
+- Decoded instruction (opcode and operands).
+- The state of the registers after executing the instruction.
+
 ### [Week 5: Memory Management]
 - **Tasks:**
   - Set up a simulated memory space.
@@ -253,7 +253,7 @@ The `week_5_memory_management()` function simulates memory management for a virt
   
 - After performing the memory operations, the function returns a formatted list of memory locations, showing each address and its stored binary value, ensuring a 6-bit representation for each value.
   
-### Code Snippet:
+### Code
 
 ```python
 def week_5_memory_management():
@@ -307,7 +307,6 @@ def week_6_io_operations():
     return write_output("display")
 ```
 ### Week 7: Advanced Features
-- **Objective:** Add advanced CPU features.
 - **Tasks:**
   - Implement branching and control flow instructions.
   - Add support for subroutines and interrupts.
@@ -343,7 +342,6 @@ def week_7_advanced_features():
     return [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
 ```
 ### Week 8: Performance Optimization
-- **Objective:** Optimize the emulator for better performance.
 - **Tasks:**
   - Profile the emulator to identify bottlenecks.
   - Optimize critical code paths.
@@ -378,12 +376,10 @@ def week_8_optimization():
     return f"Execution Time: {end_time - start_time:.6f} seconds", [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
 ```
 ### Week 9: Final Testing & Debugging
-- **Objective:** Thoroughly test and debug the emulator.
 - **Tasks:**
   - Test with a variety of assembly programs.
   - Debug and fix any issues.
   - Validate performance against benchmarks.
-### Week 9: Final Testing and Debugging
 
 In Week 9, the function simulates the final phase of testing and debugging. It runs a set of assembly instructions through the emulator, executing each one step-by-step. After all instructions are processed, it returns the final state of the registers.
 
