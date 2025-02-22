@@ -97,7 +97,7 @@ print(week_2_define_instructions())
   - Build the ALU (Arithmetic Logic Unit).
   - Implement general-purpose registers.
   - Create the program counter and instruction register.
-  - 
+    
 ### Key Components:
 
 1. **ALU (Arithmetic Logic Unit)**  
@@ -135,7 +135,66 @@ def week_3_cpu_components():
   - Implement the instruction fetching mechanism.
   - Decode instructions and execute them using the ALU and registers.
   - Test with simple programs.
+### Key Components:
 
+1. **Memory**  
+   A list of instructions in string format, which would normally be fetched from memory in a CPU.
+
+2. **Registers**  
+   A dictionary with initial values representing the state of some CPU registers.
+
+3. **Program Counter (PC)**  
+   A counter that keeps track of the current instruction's position in memory.
+
+### Fetch-Decode-Execute Cycle:
+
+1. **Fetch**  
+   An instruction is fetched from memory using the Program Counter (PC).
+
+2. **Decode**  
+   The instruction is split into the operation (opcode) and its operands (e.g., registers or values).
+
+3. **Execute**  
+   The operation is performed based on the opcode, updating registers or memory accordingly.
+
+### Functions:
+
+- **decode**  
+  This function splits the instruction into the operation and operands.
+
+- **execute**  
+  Executes the operation. For example:
+  - `LOAD` puts a value into a register.
+  - `ADD` adds two registers.
+  - `STORE` outputs the value from a register to memory.
+
+### Workflow:
+
+1. The program starts with a memory array of instructions.
+2. For each instruction:
+   - It is fetched from memory.
+   - It is decoded to extract the opcode and operands.
+   - The operation is executed, modifying the registers.
+3. The Program Counter (PC) increments, and the cycle repeats until all instructions are executed.
+
+### Output:
+
+The function returns a list containing:
+- Fetched instruction.
+- Decoded instruction (opcode and operands).
+- The state of the registers after executing the instruction.
+
+### Code:
+
+```python
+def week_4_execute_instructions():
+    # Initialize memory, registers, and PC...
+    
+    while pc < len(memory):
+        # Fetch, decode, execute cycle...
+    
+    return main_result
+```
 ### [Week 5: Memory Management]
 - **Objective:** Implement memory management for the virtual CPU.
 - **Tasks:**
