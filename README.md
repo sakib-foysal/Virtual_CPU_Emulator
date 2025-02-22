@@ -128,7 +128,7 @@ def week_3_cpu_components():
     # Class definitions and operations...
     
     return main_result + pc_results
-
+```
 ### [Week 4: Instruction Execution]
 - **Objective:** Develop the instruction fetch-decode-execute cycle.
 - **Tasks:**
