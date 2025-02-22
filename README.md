@@ -58,11 +58,11 @@ The emulation aims not only at this but also seeks to connect theory with practi
 ### 3. Return Value
 - Returns a formatted binary instruction string.
 ### Example usage
-(''')python
-assembler = instraction_formating()
-print(assembler("ADD R1 10"))    # Output: "0001 0001 00001010"
-print(assembler("HALT R0 0"))    # Output: "1111 0000 00000000"
-print(assembler("BRANCH R0 5"))  # Output: "0110 0000 00000101"
+```python
+ assembler = instraction_formating()
+ print(assembler("ADD R1 10"))    # Output: "0001 0001 00001010"
+ print(assembler("HALT R0 0"))    # Output: "1111 0000 00000000"
+ print(assembler("BRANCH R0 5"))  # Output: "0110 0000 00000101"
 
 
 ### [Week 3: Basic CPU Components]
