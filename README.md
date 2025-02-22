@@ -202,6 +202,38 @@ def week_4_execute_instructions():
   - Implement memory read/write operations.
   - Handle address mapping and memory segmentation.
 
+The `week_5_memory_management()` function simulates memory management for a virtual CPU. It initializes a list of memory with 16 locations, each initialized to zero. The function also defines two helper functions:
+
+1. **write_memory(address, value)**  
+   This function writes a binary value to a specific memory address.
+
+2. **read_memory(address)**  
+   This function returns the value stored at a given memory address.
+
+### Example Workflow:
+
+- The function writes the binary values `0b000101` (which is `5` in decimal) and `0b001011` (which is `11` in decimal) to memory addresses `2` and `5`, respectively.
+  
+- After performing the memory operations, the function returns a formatted list of memory locations, showing each address and its stored binary value, ensuring a 6-bit representation for each value.
+  
+### Code Snippet:
+
+```python
+def week_5_memory_management():
+    memory = [0b000000] * 16  # 16 memory locations
+    
+    def write_memory(address, value):
+        memory[address] = value
+
+    def read_memory(address):
+        return memory[address]
+
+    # Example operations
+    write_memory(2, 0b000101)  # Write value 5 to address 2
+    write_memory(5, 0b001011)  # Write value 11 to address 5
+    
+    return [f"Address {i:0d}: {v:06b}" for i, v in enumerate(memory)]
+```
 ### Week 6: I/O Operations
 - **Objective:** Enable basic input/output operations.
 - **Tasks:**
