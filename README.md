@@ -97,6 +97,37 @@ print(week_2_define_instructions())
   - Build the ALU (Arithmetic Logic Unit).
   - Implement general-purpose registers.
   - Create the program counter and instruction register.
+  - 
+### Key Components:
+
+1. **ALU (Arithmetic Logic Unit)**  
+   - A class that performs basic operations (ADD, SUB) based on the opcode provided.  
+   - For example, `0001` for addition (ADD) and `0010` for subtraction (SUB).
+
+2. **Registers**  
+   - A class with four 6-bit registers (initialized to `0b000000`), where you can read or write values to specific registers.
+
+3. **Program Counter (PC)**  
+   - This tracks the memory location of the next instruction to be executed (here it is initialized to `0b000000`).
+
+### Workflow:
+
+1. Two values (2 and 3) are written into registers `R0` and `R1`.
+2. The ALU performs an ADD operation on these two values (2 + 3).
+3. The result of the ADD operation is stored and returned as a 6-bit number (`000010`).
+4. The Program Counter value (`000000`) is also included in the return result.
+
+### Output:
+
+The function returns a formatted string:
+- The result of the ADD operation in 6-bit binary format.
+- The current value of the Program Counter in 6-bit binary format.
+
+```python
+def week_3_cpu_components():
+    # Class definitions and operations...
+    
+    return main_result + pc_results
 
 ### [Week 4: Instruction Execution]
 - **Objective:** Develop the instruction fetch-decode-execute cycle.
