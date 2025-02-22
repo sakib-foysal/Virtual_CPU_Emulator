@@ -63,7 +63,35 @@ The emulation aims not only at this but also seeks to connect theory with practi
  print(assembler("ADD R1 10"))    # Output: "0001 0001 00001010"
  print(assembler("HALT R0 0"))    # Output: "1111 0000 00000000"
  print(assembler("BRANCH R0 5"))  # Output: "0110 0000 00000101"
+```
+### How It Works:
 
+1. **Calls `instruction_formatting()`**
+   - Retrieves the `assembler` function that translates assembly instructions into binary machine code.
+
+2. **Defines Example Assembly Instructions**
+   - A list of instructions like `"ADD R1 10"`, `"SUB R2 5"`, etc.
+
+3. **Converts Instructions to Machine Code**
+   - Iterates over instructions, calling `assembler()` on each, and stores the results in `machine_code`.
+
+4. **Returns Machine Code**
+   - The function returns a list of binary representations of the instructions.
+
+### Example Output:
+
+```python
+# Running the function
+print(week_2_define_instructions())
+
+# Output:
+[
+    "0001 0001 00001010",  # ADD R1 10
+    "0010 0010 00000101",  # SUB R2 5
+    "0011 0001 00010100",  # LOAD R1 20
+    "0100 0010 00001111"   # STORE R2 15
+]
+```
 
 ### [Week 3: Basic CPU Components]
 - **Objective:** Implement core components of the CPU.
