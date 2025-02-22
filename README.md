@@ -45,7 +45,7 @@ The emulation aims not only at this but also seeks to connect theory with practi
   - Create a simple assembler to convert assembly code into machine code.
 
 - **Instructions Formatting:**
-  1. **Opcode Mapping:**
+  **1. Opcode Mapping:**
 
 A dictionary isa stores instruction opcodes as binary strings.
 Assembler Function (assembler)
