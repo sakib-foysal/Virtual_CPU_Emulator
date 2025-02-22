@@ -114,11 +114,7 @@ print(week_2_define_instructions())
 3. The result of the ADD operation is stored and returned as a 6-bit number (`000010`).
 4. The Program Counter value (`000000`) is also included in the return result.
 
-### Output:
-
-The function returns a formatted string:
-- The result of the ADD operation in 6-bit binary format.
-- The current value of the Program Counter in 6-bit binary format.
+### Code
 
 ```python
 def week_3_cpu_components():
