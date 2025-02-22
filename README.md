@@ -43,9 +43,9 @@ The emulation aims not only at this but also seeks to connect theory with practi
   - Define basic instructions (ADD, SUB, LOAD, STORE, etc.).
   - Document the instruction formats.
   - Create a simple assembler to convert assembly code into machine code.
- 
-  - Instructions Formatting:
-Opcode Mapping:
+
+# Instructions Formatting:
+ -Opcode Mapping:
 
 A dictionary isa stores instruction opcodes as binary strings.
 Assembler Function (assembler)
@@ -54,8 +54,7 @@ Splits an instruction string (e.g., "ADD R1 10") into parts.
 Converts the opcode to its binary representation.
 Extracts the register number (e.g., R1 → 0001).
 Converts the numeric value (if present) to an 8-bit binary string.
-Return Value
-
+-Return Value
 Returns a formatted binary instruction string.
 
 ### [Week 3: Basic CPU Components]
