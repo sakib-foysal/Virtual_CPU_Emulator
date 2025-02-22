@@ -31,14 +31,12 @@ The emulation aims not only at this but also seeks to connect theory with practi
 ## Weekly Tasks Overview 🗓️
 
 ### [Week 1: Project Planning & Setup](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2001.pdf)
-- **Objective:** Define project scope, gather resources, and set up a development environment.
 - **Tasks:**
   - Outline the features of the virtual CPU.
   - Choose a programming language (Python/C++) and tools.
   - Set up version control (e.g., GitHub).
 
 ### [Week 2: Instruction Set Architecture (ISA)]
-- **Objective:** Design the ISA for the virtual CPU.
 - **Tasks:**
   - Define basic instructions (ADD, SUB, LOAD, STORE, etc.).
   - Document the instruction formats.
@@ -92,7 +90,6 @@ print(week_2_define_instructions())
 ```
 
 ### [Week 3: Basic CPU Components]
-- **Objective:** Implement core components of the CPU.
 - **Tasks:**
   - Build the ALU (Arithmetic Logic Unit).
   - Implement general-purpose registers.
@@ -125,12 +122,37 @@ The function returns a formatted string:
 
 ```python
 def week_3_cpu_components():
-    # Class definitions and operations...
-    
+    class ALU:
+        def operate(self, opcode, operand1, operand2):
+            if opcode == "0001":  # ADD
+                return operand1 + operand2
+            elif opcode == "0010":  # SUB
+                return operand1 - operand2
+
+    class Registers:
+        def __init__(self):
+            self.regs = [0b000000] * 4  # Four 6-bit registers
+
+        def write(self, reg_num, value):
+            self.regs[reg_num] = value
+
+        def read(self, reg_num):
+            return self.regs[reg_num]
+
+    alu = ALU()
+    registers = Registers()
+    pc = 0b000000  # Program counter
+
+    # Example operations
+    registers.write(0, 0b000010)  # Write 2 to R0
+    registers.write(1, 0b000011)  # Write 3 to R1
+    result = alu.operate("0001", registers.read(0), registers.read(1))  # ADD R0, R1
+    main_result= f"Result of ADD: {result:06d}"
+    pc_results= f"\nProgram Counter: {pc:06b}"
+
     return main_result + pc_results
 ```
 ### [Week 4: Instruction Execution]
-- **Objective:** Develop the instruction fetch-decode-execute cycle.
 - **Tasks:**
   - Implement the instruction fetching mechanism.
   - Decode instructions and execute them using the ALU and registers.
@@ -169,7 +191,6 @@ def week_3_cpu_components():
   - `STORE` outputs the value from a register to memory.
 
 ### Workflow:
-
 1. The program starts with a memory array of instructions.
 2. For each instruction:
    - It is fetched from memory.
@@ -188,15 +209,35 @@ The function returns a list containing:
 
 ```python
 def week_4_execute_instructions():
-    # Initialize memory, registers, and PC...
+    memory = [ "LOAD R1, 10", "ADD R1, R2", "STORE R1, 20" ] #["000101001010", "001010000001", "111100000000"]  # Binary instructions in memory
+    #registers = [0b000000] * 4
+    registers = {"R1": 0b00, "R2": 0b101}  # Initialize registers
+    pc = 0  # Program counter
     
-    while pc < len(memory):
-        # Fetch, decode, execute cycle...
     
-    return main_result
+    # Function to decode an instruction
+    def decode(instruction):
+        parts = instruction.split()  # Split into operation and operands
+        opcode = parts[0]  # The operation (e.g., LOAD, ADD, STORE)
+        operands = parts[1:]  # The arguments (e.g., R1, 10)
+        return opcode, operands
+
+
+    # Function to execute an instruction
+    def execute(opcode, operands):
+        if opcode == "LOAD":
+            reg, value = operands[0], int(operands[1])  # Extract register and value
+            registers[reg] = value  # Load the value into the register
+        elif opcode == "ADD":
+            reg1, reg2 = operands[0], operands[1]  # Extract the two registers
+            registers[reg1] += registers[reg2]  # Perform addition
+        elif opcode == "STORE":
+            reg, address = operands[0], int(operands[1])  # Extract register and address
+            print(f"Value at Memory Address {address}: {registers[reg]}")
+        else:
+            print("Unknown instruction")
 ```
 ### [Week 5: Memory Management]
-- **Objective:** Implement memory management for the virtual CPU.
 - **Tasks:**
   - Set up a simulated memory space.
   - Implement memory read/write operations.
@@ -235,12 +276,40 @@ def week_5_memory_management():
     return [f"Address {i:0d}: {v:06b}" for i, v in enumerate(memory)]
 ```
 ### Week 6: I/O Operations
-- **Objective:** Enable basic input/output operations.
 - **Tasks:**
   - Implement simulated I/O devices (keyboard, display).
   - Create I/O instructions and integrate them with the CPU.
   - Test with I/O-intensive programs.
 
+The `week_6_io_operations()` function simulates basic input/output (I/O) operations, specifically handling input from a "keyboard" and output to a "display." The function performs the following:
+
+1. **Simulated Keyboard Input**  
+   It reads a value (in this case, `6`) from the "keyboard" and stores it in a dictionary.
+   
+2. **Display Output**  
+   The value from the "keyboard" is transferred to the "display" device, and the output is returned as a formatted string.
+
+### Code Snippet (Week 6):
+
+```python
+def week_6_io_operations():
+    value1 = 6  # keyboard input
+    value2 = 0
+    
+    io_devices = {"keyboard": bin(value1)[2:], "display": bin(value2)[2:]}
+
+    def read_input(device):
+        if device == "keyboard":
+            io_devices[device] = value1
+
+    def write_output(device):
+        if device == "display":
+            return f"Display Output: {io_devices[device]:0d}"
+
+    read_input("keyboard")
+    io_devices["display"] = io_devices["keyboard"]
+    return write_output("display")
+```
 ### Week 7: Advanced Features
 - **Objective:** Add advanced CPU features.
 - **Tasks:**
@@ -248,20 +317,101 @@ def week_5_memory_management():
   - Add support for subroutines and interrupts.
   - Integrate a simple pipeline mechanism.
 
+This week, we simulate an emulator that supports branching, subroutine execution, and a basic pipeline (fetch, decode, execute). The assembly instructions are formatted, and the program counter (pc) handles the branching logic. The program simulates a basic pipeline, where each instruction is processed sequentially.
+
+### Key Features:
+- **Branching:** The emulator handles branch instructions (`BRANCH`) that modify the flow of execution based on register values.
+- **Subroutine Execution:** The program executes instructions like `ADD` and `HALT`, affecting the registers.
+- **Pipeline:** The program implements a basic pipeline, processing each instruction in three stages: fetch, decode, and execute.
+
+### Code
+
+```python
+def week_7_advanced_features():
+    assembler = instraction_formating()
+    assembly_instructions = ["BRANCH R0 5", "ADD R1 10", "HALT R0 0"]
+    memory = [assembler(inst) for inst in assembly_instructions]
+    
+    registers = [0b000000] * 4
+    pc = 0
+    pipeline = {"fetch": None, "decode": None, "execute": None}
+    
+    while pc < len(memory):
+        pipeline["execute"] = pipeline["decode"]
+        pipeline["decode"] = pipeline["fetch"]
+        pipeline["fetch"] = memory[pc]
+        if pipeline["execute"]:
+            execute(pipeline["execute"])
+        pc += 1
+
+    return [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
+```
 ### Week 8: Performance Optimization
 - **Objective:** Optimize the emulator for better performance.
 - **Tasks:**
   - Profile the emulator to identify bottlenecks.
   - Optimize critical code paths.
   - Enhance the assembler for better instruction encoding.
+### Week 8: Execution Time Profiling and Optimization
 
+In Week 8, the emulator is enhanced by profiling its execution time. The program now measures how long it takes to execute the cycle of instructions and calculates the execution time. Additionally, it returns the register states after execution.
+
+### Key Features:
+- **Execution Time Profiling:** The program tracks the start and end times of the instruction cycle and calculates the total execution time.
+- **Optimization:** The cycle of instructions is executed, and the program measures the time taken for each instruction to run.
+
+### Code
+
+```python
+def week_8_optimization():
+    from time import time
+
+    assembler = instraction_formating()
+    assembly_instructions = ["ADD R1 2", "SUB R1 1", "HALT R0 0"]
+    memory = [assembler(inst) for inst in assembly_instructions]
+    
+    registers = [0b000000] * 4
+    pc = 0
+
+    start_time = time()
+    while pc < len(memory):
+        execute(memory[pc])
+        pc += 1
+    end_time = time()
+
+    return f"Execution Time: {end_time - start_time:.6f} seconds", [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
+```
 ### Week 9: Final Testing & Debugging
 - **Objective:** Thoroughly test and debug the emulator.
 - **Tasks:**
   - Test with a variety of assembly programs.
   - Debug and fix any issues.
   - Validate performance against benchmarks.
+### Week 9: Final Testing and Debugging
 
+In Week 9, the function simulates the final phase of testing and debugging. It runs a set of assembly instructions through the emulator, executing each one step-by-step. After all instructions are processed, it returns the final state of the registers.
+
+### Key Features:
+- **Instruction Execution:** The function processes each instruction sequentially in the emulator.
+- **Final Register State:** After the execution of all instructions, the final state of the registers is returned.
+
+### Code
+
+```python
+def week_9_testing_debugging():
+    assembler = instraction_formating()
+    assembly_instructions = ["ADD R1 1", "SUB R1 1", "ADD R1 1", "HALT R0 0"]
+    memory = [assembler(inst) for inst in assembly_instructions]
+    
+    registers = [0b000000] * 4
+    pc = 0
+
+    while pc < len(memory):
+        execute(memory[pc])
+        pc += 1
+
+    return [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
+```
 ### Week 10: Documentation & Presentation
 - **Objective:** Document the project and prepare for presentation.
 - **Tasks:**
