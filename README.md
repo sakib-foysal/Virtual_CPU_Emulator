@@ -44,7 +44,7 @@ The emulation aims not only at this but also seeks to connect theory with practi
   - Document the instruction formats.
   - Create a simple assembler to convert assembly code into machine code.
 
-#### Instructions Formatting:
+- ***Instructions Formatting:***
  -Opcode Mapping:
 
 A dictionary isa stores instruction opcodes as binary strings.
