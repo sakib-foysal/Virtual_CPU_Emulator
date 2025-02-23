@@ -117,7 +117,6 @@ print(week_2_define_instructions())
 ### Code
 
 ```python
-def week_3_cpu_components():
     class ALU:
         def operate(self, opcode, operand1, operand2):
             if opcode == "0001":  # ADD
