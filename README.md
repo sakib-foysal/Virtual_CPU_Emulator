@@ -134,19 +134,6 @@ def week_3_cpu_components():
 
         def read(self, reg_num):
             return self.regs[reg_num]
-
-    alu = ALU()
-    registers = Registers()
-    pc = 0b000000  # Program counter
-
-    # Example operations
-    registers.write(0, 0b000010)  # Write 2 to R0
-    registers.write(1, 0b000011)  # Write 3 to R1
-    result = alu.operate("0001", registers.read(0), registers.read(1))  # ADD R0, R1
-    main_result= f"Result of ADD: {result:06d}"
-    pc_results= f"\nProgram Counter: {pc:06b}"
-
-    return main_result + pc_results
 ```
 ### [Week 4: Instruction Execution]
 - **Tasks:**
@@ -197,34 +184,12 @@ def week_3_cpu_components():
 ### Code:
 
 ```python
-def week_4_execute_instructions():
-    memory = [ "LOAD R1, 10", "ADD R1, R2", "STORE R1, 20" ] #["000101001010", "001010000001", "111100000000"]  # Binary instructions in memory
-    #registers = [0b000000] * 4
-    registers = {"R1": 0b00, "R2": 0b101}  # Initialize registers
-    pc = 0  # Program counter
-    
-    
     # Function to decode an instruction
     def decode(instruction):
         parts = instruction.split()  # Split into operation and operands
         opcode = parts[0]  # The operation (e.g., LOAD, ADD, STORE)
         operands = parts[1:]  # The arguments (e.g., R1, 10)
         return opcode, operands
-
-
-    # Function to execute an instruction
-    def execute(opcode, operands):
-        if opcode == "LOAD":
-            reg, value = operands[0], int(operands[1])  # Extract register and value
-            registers[reg] = value  # Load the value into the register
-        elif opcode == "ADD":
-            reg1, reg2 = operands[0], operands[1]  # Extract the two registers
-            registers[reg1] += registers[reg2]  # Perform addition
-        elif opcode == "STORE":
-            reg, address = operands[0], int(operands[1])  # Extract register and address
-            print(f"Value at Memory Address {address}: {registers[reg]}")
-        else:
-            print("Unknown instruction")
 ```
 ### Output:
 
@@ -256,20 +221,11 @@ The `week_5_memory_management()` function simulates memory management for a virt
 ### Code
 
 ```python
-def week_5_memory_management():
-    memory = [0b000000] * 16  # 16 memory locations
-    
     def write_memory(address, value):
         memory[address] = value
 
     def read_memory(address):
         return memory[address]
-
-    # Example operations
-    write_memory(2, 0b000101)  # Write value 5 to address 2
-    write_memory(5, 0b001011)  # Write value 11 to address 5
-    
-    return [f"Address {i:0d}: {v:06b}" for i, v in enumerate(memory)]
 ```
 ### Week 6: I/O Operations
 - **Tasks:**
@@ -288,12 +244,6 @@ The `week_6_io_operations()` function simulates basic input/output (I/O) operati
 ### Code Snippet (Week 6):
 
 ```python
-def week_6_io_operations():
-    value1 = 6  # keyboard input
-    value2 = 0
-    
-    io_devices = {"keyboard": bin(value1)[2:], "display": bin(value2)[2:]}
-
     def read_input(device):
         if device == "keyboard":
             io_devices[device] = value1
@@ -322,15 +272,8 @@ This week, we simulate an emulator that supports branching, subroutine execution
 ### Code
 
 ```python
-def week_7_advanced_features():
-    assembler = instraction_formating()
-    assembly_instructions = ["BRANCH R0 5", "ADD R1 10", "HALT R0 0"]
-    memory = [assembler(inst) for inst in assembly_instructions]
-    
-    registers = [0b000000] * 4
     pc = 0
-    pipeline = {"fetch": None, "decode": None, "execute": None}
-    
+    pipeline = {"fetch": None, "decode": None, "execute": None} 
     while pc < len(memory):
         pipeline["execute"] = pipeline["decode"]
         pipeline["decode"] = pipeline["fetch"]
@@ -338,8 +281,6 @@ def week_7_advanced_features():
         if pipeline["execute"]:
             execute(pipeline["execute"])
         pc += 1
-
-    return [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
 ```
 ### Week 8: Performance Optimization
 - **Tasks:**
@@ -357,23 +298,14 @@ In Week 8, the emulator is enhanced by profiling its execution time. The program
 ### Code
 
 ```python
-def week_8_optimization():
     from time import time
-
-    assembler = instraction_formating()
-    assembly_instructions = ["ADD R1 2", "SUB R1 1", "HALT R0 0"]
-    memory = [assembler(inst) for inst in assembly_instructions]
-    
     registers = [0b000000] * 4
     pc = 0
-
     start_time = time()
     while pc < len(memory):
         execute(memory[pc])
         pc += 1
     end_time = time()
-
-    return f"Execution Time: {end_time - start_time:.6f} seconds", [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
 ```
 ### Week 9: Final Testing & Debugging
 - **Tasks:**
@@ -390,19 +322,11 @@ In Week 9, the function simulates the final phase of testing and debugging. It r
 ### Code
 
 ```python
-def week_9_testing_debugging():
-    assembler = instraction_formating()
-    assembly_instructions = ["ADD R1 1", "SUB R1 1", "ADD R1 1", "HALT R0 0"]
-    memory = [assembler(inst) for inst in assembly_instructions]
-    
     registers = [0b000000] * 4
     pc = 0
-
     while pc < len(memory):
         execute(memory[pc])
         pc += 1
-
-    return [f"R{i}: {reg:06b}" for i, reg in enumerate(registers)]
 ```
 ### Week 10: Documentation & Presentation
 - **Objective:** Document the project and prepare for presentation.
