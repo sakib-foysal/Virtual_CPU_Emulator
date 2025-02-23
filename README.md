@@ -339,7 +339,8 @@ In Week 9, the function simulates the final phase of testing and debugging. It r
 To clone this repository, run the following command in your terminal:
 
 ```sh
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/sakib-foysal/Virtual_CPU_Emulator
+.git
 cd your-repo
 ```
 
