@@ -286,8 +286,7 @@ This week, we simulate an emulator that supports branching, subroutine execution
   - Profile the emulator to identify bottlenecks.
   - Optimize critical code paths.
   - Enhance the assembler for better instruction encoding.
-### Week 8: Execution Time Profiling and Optimization
-
+  
 In Week 8, the emulator is enhanced by profiling its execution time. The program now measures how long it takes to execute the cycle of instructions and calculates the execution time. Additionally, it returns the register states after execution.
 
 ### Key Features:
