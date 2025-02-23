@@ -240,7 +240,7 @@ The `week_6_io_operations()` function simulates basic input/output (I/O) operati
 2. **Display Output**  
    The value from the "keyboard" is transferred to the "display" device, and the output is returned as a formatted string.
 
-### Code Snippet (Week 6):
+### Code
 
 ```python
     def read_input(device):
@@ -334,3 +334,4 @@ In Week 9, the function simulates the final phase of testing and debugging. It r
   - Prepare a project report and presentation slides.
   - Conduct a demo session.
 **Collaboration:** Our team uses GitHub for version control and progress tracking.
+
