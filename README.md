@@ -334,4 +334,13 @@ In Week 9, the function simulates the final phase of testing and debugging. It r
   - Conduct a demo session.
     
 ### Collaboration:** Our team uses GitHub for version control and progress tracking.
+## Clone the Repository
+
+To clone this repository, run the following command in your terminal:
+
+```sh
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
 
