@@ -36,7 +36,7 @@ The emulation aims not only at this but also seeks to connect theory with practi
   - Choose a programming language (Python/C++) and tools.
   - Set up version control (e.g., GitHub).
 
-### [Week 2: Instruction Set Architecture (ISA)]
+### [Week 2: Instruction Set Architecture (ISA)](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2002.pdf)
 - **Tasks:**
   - Define basic instructions (ADD, SUB, LOAD, STORE, etc.).
   - Document the instruction formats.
@@ -89,7 +89,7 @@ print(week_2_define_instructions())
  "0100 0010 00001111"   # STORE R2 15]
 ```
 
-### [Week 3: Basic CPU Components]
+### [Week 3: Basic CPU Components](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2003.pdf)
 - **Tasks:**
   - Build the ALU (Arithmetic Logic Unit).
   - Implement general-purpose registers.
@@ -134,7 +134,7 @@ print(week_2_define_instructions())
         def read(self, reg_num):
             return self.regs[reg_num]
 ```
-### [Week 4: Instruction Execution]
+### [Week 4: Instruction Execution](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2004%20.pdf)
 - **Tasks:**
   - Implement the instruction fetching mechanism.
   - Decode instructions and execute them using the ALU and registers.
@@ -197,7 +197,7 @@ The function returns a list containing:
 - Decoded instruction (opcode and operands).
 - The state of the registers after executing the instruction.
 
-### [Week 5: Memory Management]
+### [Week 5: Memory Management](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%20%2005.pdf)
 - **Tasks:**
   - Set up a simulated memory space.
   - Implement memory read/write operations.
@@ -226,7 +226,7 @@ The `week_5_memory_management()` function simulates memory management for a virt
     def read_memory(address):
         return memory[address]
 ```
-### Week 6: I/O Operations
+### [Week 6: I/O Operations](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2006.pdf)
 - **Tasks:**
   - Implement simulated I/O devices (keyboard, display).
   - Create I/O instructions and integrate them with the CPU.
@@ -255,7 +255,7 @@ The `week_6_io_operations()` function simulates basic input/output (I/O) operati
     io_devices["display"] = io_devices["keyboard"]
     return write_output("display")
 ```
-### Week 7: Advanced Features
+### [Week 7: Advanced Features](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%2007.pdf)
 - **Tasks:**
   - Implement branching and control flow instructions.
   - Add support for subroutines and interrupts.
@@ -281,7 +281,7 @@ This week, we simulate an emulator that supports branching, subroutine execution
             execute(pipeline["execute"])
         pc += 1
 ```
-### Week 8: Performance Optimization
+### [Week 8: Performance Optimization](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/week%208.pdf)
 - **Tasks:**
   - Profile the emulator to identify bottlenecks.
   - Optimize critical code paths.
@@ -306,7 +306,7 @@ In Week 8, the emulator is enhanced by profiling its execution time. The program
         pc += 1
     end_time = time()
 ```
-### Week 9: Final Testing & Debugging
+### [Week 9: Final Testing & Debugging](https://github.com/sakib-foysal/Virtual_CPU_Emulator/blob/main/docs/Week%209.pdf)
 - **Tasks:**
   - Test with a variety of assembly programs.
   - Debug and fix any issues.
