@@ -333,5 +333,5 @@ In Week 9, the function simulates the final phase of testing and debugging. It r
   - Write comprehensive documentation.
   - Prepare a project report and presentation slides.
   - Conduct a demo session.
-**Collaboration:** Our team uses GitHub for version control and progress tracking.
+  - **Collaboration:** Our team uses GitHub for version control and progress tracking.
 
